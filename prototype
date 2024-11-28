@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhisperTech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe4ec;
+        }
+        header {
+            background-color: #f8bbd0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+        .language-switch {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .language-switch select {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ff4081;
+            background-color: #fce4ec;
+            color: #d81b60;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .language-switch select:hover {
+            background-color: #ffc1e3;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: #fff0f6;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            color: white;
+            background-color: #f48fb1;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #f06292;
+        }
+        .quit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            color: white;
+            background-color: #e57373;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .quit-button:hover {
+            background-color: #ef5350;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-bottom: 10px;
+            color: #c2185b;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f8bbd0;
+            color: white;
+        }
+        .map-container, .chat-container, .feedback-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ffe4f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WhisperTech</h1>
+        <div class="language-switch">
+            <label for="language">Language: </label>
+            <select id="language" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="te">Telugu</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Welcome to WhisperTech</h2>
+            <p>Your trusted partner for support and guidance. Access resources, connect with experts, and find the help you need, all in a safe and discreet manner.</p>
+        </div>
+
+        <div class="section">
+            <h2>Quick Links</h2>
+            <a href="#" class="button">Emergency Help</a>
+            <a href="#" class="button">Legal Guidance</a>
+            <a href="#" class="button">Resources</a>
+            <a href="#" class="quit-button" onclick="quitPage()">Quit Page</a>
+        </div>
+
+        <div class="section">
+            <h2>Awareness & Information</h2>
+            <h3>Understanding Abuse</h3>
+            <p>Abuse can take many forms, including physical, emotional, financial, sexual, and psychological abuse. Recognizing these forms can help you identify and take action if you or someone you know is affected.</p>
+
+            <h3>Signs of Abuse</h3>
+            <ul>
+                <li>Withdrawal from social activities and people.</li>
+                <li>Unexplained injuries or sudden changes in behavior.</li>
+                <li>Signs of fear or anxiety when a certain person is nearby.</li>
+                <li>Excessive control or isolation from friends and family.</li>
+            </ul>
+
+            <h3>Resources Available</h3>
+            <p>Connect with local helplines and organizations that provide confidential support, legal advice, and emergency assistance.</p>
+
+            <h3>How to Seek Help Safely</h3>
+            <p>Always prioritize your safety. Reach out discreetly using secure channels and make a safety plan that you can follow in an emergency.</p>
+
+            <h3>Empowerment and Education</h3>
+            <p>Learn more about self-care and safety practices to maintain mental well-being and confidence during difficult situations. Know your rights and be aware of available support services.</p>
+        </div>
+
+        <div class="section">
+            <h2>Chat Support</h2>
+            <div class="chat-container">
+                <p>Connect with our chat support for immediate assistance.</p>
+                <button class="button">Start Chat</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Feedback & Reporting</h2>
+            <div class="feedback-container">
+                <form>
+                    <label for="feedback">Your Feedback:</label><br>
+                    <textarea id="feedback" rows="4" style="width: 100%;"></textarea><br>
+                    <button type="submit" class="button">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Guides & FAQs</h2>
+            <p>Find helpful guides and frequently asked questions about handling difficult situations safely.</p>
+            <button class="button">View Guides</button>
+        </div>
+
+        <div class="section">
+            <h2>About Us</h2>
+            <p>WhisperTech is dedicated to providing discreet, reliable, and confidential support to individuals in need. We connect you with trusted services and ensure your safety and privacy at every step.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 WhisperTech. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchLanguage() {
+            const language = document.getElementById('language').value;
+            console.log(`Language switched to: ${language}`);
+            // Placeholder for language-switching functionality
+        }
+
+        function quitPage() {
+            try {
+                location.replace("https://www.google.com");
+            } catch (error) {
+                console.error("Redirect failed:", error);
+            }
+        }
+
+        console.log("WhisperTech prototype loaded.");
+    </script>
+</body>
+</html>
